@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import TimeReg from '../components/TimeReg.vue'
 import { onMounted, ref } from 'vue';
+import {useRouter} from 'vue-router';
+
 let tableData = ref([]);
 
 async function GetTableData() {
@@ -31,6 +33,7 @@ let error = ref("");
 let password = ref("");
 let password_error = ref("")
 let password_success = ref("")
+const router = useRouter();
 
 function handleSelectionChange(e) {
     id.value = e.target.value;
@@ -103,12 +106,34 @@ async function newPassword() {
 }
 onMounted(() => {
     GetTableData();
-})
+});
+async function LogOut() {
+    const requestOptions = {
+        method: "POST",
+        header: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            user_id: localStorage.getItem('user_id')
+        })
+    }
+    const response  = await fetch('http://localhost:8000/logout', requestOptions)
+    console.log(response);
+    
+    localStorage.setItem('token', null);
+    localStorage.setItem('user_id', null);
+    router.push("/login")
+}
 </script>
 
 <template>
     <main class="container">
-        <h1>HomeView</h1>
+        <div class="grid">
+            <h1 class="">HomeView</h1>
+            <div class="grid">
+                <div></div>
+                <div></div>
+                <p @click="LogOut" style="cursor:pointer;text-decoration:underline">Log Out</p>
+            </div>
+        </div>
         <p class="pico-color-green-400">{{ password_success }}</p>
         <p class="pico-color-pink-400">{{ password_error }}</p>
         <input v-model="password" type="password" name="password" placlass="container" ceholder="Password"
