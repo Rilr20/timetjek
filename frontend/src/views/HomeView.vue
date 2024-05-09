@@ -14,8 +14,8 @@ async function GetTableData() {
     };
     const response = await fetch('http://localhost:8000/time_registration/table', requestOptions);
     if (response.message == "Unautorized") {
-        localStorage.setItem('token', null);
-        localStorage.setItem('user_id', null);
+        localStorage.setItem('token', "");
+        localStorage.setItem('user_id', "");
     }
 
     const data = await response.json()
@@ -118,8 +118,8 @@ async function LogOut() {
     const response  = await fetch('http://localhost:8000/logout', requestOptions)
     console.log(response);
     
-    localStorage.setItem('token', null);
-    localStorage.setItem('user_id', null);
+    localStorage.setItem('token', "");
+    localStorage.setItem('user_id', "");
     router.push("/login")
 }
 </script>

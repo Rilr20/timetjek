@@ -27,9 +27,11 @@ router.beforeEach((to, from, next)=> {
   const token = localStorage.getItem('token');
   console.log(token);
   
-  if (authRequired && !token) {
+  if (authRequired && token === "") {
     next('/login');
   } else {
+    console.log("next");
+    
     next();
   }
 })

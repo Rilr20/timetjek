@@ -54,11 +54,11 @@ async function Authenticate() {
 
             const response = await fetch('http://localhost:8000/login', requestOptions);
             const data = await response.json();
-            // console.log(data.message);
+            console.log(data.message);
             if (data.message === "Invalid credentials") {
                 error.value = data.message;
             } else {
-                // console.log(data);
+                console.log(data);
                 
                 token.value = data[1]
                 localStorage.setItem('token', token.value);
