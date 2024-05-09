@@ -146,7 +146,8 @@ async function LogOut() {
         <input v-model="password" type="password" name="password" placlass="container" ceholder="Password"
             aria-label="Password" />
         <button @click="newPassword">Change Password</button>
-        <TimeReg />
+        <TimeReg :method="GetTableData"/>
+
         <h2>Your Time Registrations</h2>
         <div style="overflow-x:auto;">
             <table>

@@ -1,7 +1,13 @@
 <script>
-import { ref } from 'vue';
+import { ref,defineProps } from 'vue';
 
+const props = defineProps({
+  method: {
+    type: Function,
+  }
+})
 export default {
+
   setup() {
     let gps_location = ref("");
     let response_text = ref("")
@@ -19,10 +25,9 @@ export default {
       
       try {
         const response = await fetch('http://localhost:8000/time_registration', requestOptions);
-        console.log(response);
         response_text.value = response.statusText;
+        props.method()
       } catch (error) {
-        console.error(error);
       }
     }
 
