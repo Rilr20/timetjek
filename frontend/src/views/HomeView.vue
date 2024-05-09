@@ -115,6 +115,7 @@ onMounted(() => {
             aria-label="Password" />
         <button @click="newPassword">Change Password</button>
         <TimeReg />
+        <h2>Your Time Registrations</h2>
         <div style="overflow-x:auto;">
             <table>
                 <tr>
@@ -134,11 +135,10 @@ onMounted(() => {
                             {{ item.gps_coordinates }}
                         </a>
                     </td>
-                    <!-- <Button>Edit</Button> -->
                 </tr>
             </table>
         </div>
-        <!-- <Edit :tableData=tableData /> -->
+        <h3>Edit your time registrations</h3>
         <p class="pico-color-pink-400">{{ error }}</p>
         <select name="edit" aria-label="Select id" required @change="handleSelectionChange($event)">
             <option selected disabled value="">Select id</option>
