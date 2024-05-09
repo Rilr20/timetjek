@@ -10,7 +10,6 @@ let id = ref("");
 let gps = ref("");
 
 async function GetTableData() {
-    console.log(localStorage.getItem('user_id'));
     const requestOptions = {
         method: "Post",
         headers: { 'Content-Type': 'application/json', 'auth': localStorage.getItem('token') },
@@ -23,8 +22,6 @@ async function GetTableData() {
     }
 
     const data = await response.json()
-    console.log(data);
-
     tableData.value = data;
 
 }

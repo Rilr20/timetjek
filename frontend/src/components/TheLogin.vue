@@ -20,7 +20,6 @@ async function Authenticate() {
 
     if (is_register) {
         //register
-        // console.log("register");
         
         const requestOptions = {
             method: "Post",
@@ -31,7 +30,6 @@ async function Authenticate() {
 
             const response = await fetch('http://localhost:8000/register', requestOptions);
             const data = await response.json();
-            // console.log(data.message);
             
             if (data.message === "Account already registered") {
                 error.value = "Account already registered"
@@ -54,11 +52,9 @@ async function Authenticate() {
 
             const response = await fetch('http://localhost:8000/login', requestOptions);
             const data = await response.json();
-            console.log(data.message);
             if (data.message === "Invalid credentials") {
                 error.value = data.message;
             } else {
-                console.log(data);
                 
                 token.value = data[1]
                 localStorage.setItem('token', token.value);
