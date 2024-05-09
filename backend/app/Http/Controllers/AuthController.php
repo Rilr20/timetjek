@@ -23,7 +23,7 @@ class AuthController extends Controller
         return response()->json(['token', $token, 'user_id', $user->id], 200);
     }
     public function logout(Request $request) {
-            $user = User::where('personnumber', $request->personnumber)->first();
+            $user = User::where('user_id', $request->user_id)->first();
             $user->remember_token = null;
             return response()->json("logged out", 200);
     }
