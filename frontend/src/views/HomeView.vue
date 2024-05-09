@@ -155,7 +155,7 @@ async function LogOut() {
                     <td>{{ item.check_in_time }}</td>
                     <td>{{ item.check_out_time }}</td>
                     <td>
-                        <a
+                        <a v-if="item.gps_coordinates"
                             :href="`https://www.openstreetmap.org/?mlat=${item.gps_coordinates.split(',')[0]}&mlon=${item.gps_coordinates.split(',')[1]}`">
                             {{ item.gps_coordinates }}
                         </a>
