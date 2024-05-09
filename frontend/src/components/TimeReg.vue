@@ -1,19 +1,15 @@
 <script>
 import { ref,defineProps } from 'vue';
 
-const props = defineProps({
-  method: {
-    type: Function,
-  }
-})
-export default {
 
+export default {
   setup() {
+    console.log(props);
     let gps_location = ref("");
     let response_text = ref("")
 
     async function timeRegistration() {
-      
+        console.log("time");
         const requestOptions = {
         method: "POST",
         headers: { 'Content-Type': 'application/json', 'auth': localStorage.getItem('token') },
@@ -28,6 +24,7 @@ export default {
         response_text.value = response.statusText;
         props.method()
       } catch (error) {
+        console.log(error);
       }
     }
 
