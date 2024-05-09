@@ -30,12 +30,15 @@ let checkOut = ref("");
 let id = ref("");
 let gps = ref("");
 let error = ref("");
+let edit_success = ref("")
 let password = ref("");
 let password_error = ref("")
 let password_success = ref("")
 const router = useRouter();
 
 function handleSelectionChange(e) {
+    error.value = ""
+    edit_success.value = ""
     id.value = e.target.value;
     let object = tableData.value.find(x => x.id == e.target.value);
     checkIn.value = object.check_in_time;
@@ -43,6 +46,8 @@ function handleSelectionChange(e) {
     gps.value = object.gps_coordinates;
 }
 async function Edit() {
+    error.value = ""
+    edit_success.value= ""
     const requestOptions = {
         method: "PUT",
         headers: { 'Content-Type': 'application/json', 'auth': localStorage.getItem('token') },
@@ -64,6 +69,7 @@ async function Edit() {
             error.value = responseData.error;
 
         } else {
+            edit_success.value = "Updated";
             GetTableData()
         }
 
@@ -166,6 +172,7 @@ async function LogOut() {
         </div>
         <h3>Edit your time registrations</h3>
         <p class="pico-color-pink-400">{{ error }}</p>
+        <p class="pico-color-green-400">{{edit_success}}</p>
         <select name="edit" aria-label="Select id" required @change="handleSelectionChange($event)">
             <option selected disabled value="">Select id</option>
             <option v-for="data in tableData" :key="data.id" :value="data.id" :data-check-in="data.check_in"
