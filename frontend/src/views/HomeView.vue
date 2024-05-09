@@ -136,6 +136,7 @@ async function LogOut() {
         </div>
         <p class="pico-color-green-400">{{ password_success }}</p>
         <p class="pico-color-pink-400">{{ password_error }}</p>
+        <label for="">Change Password</label>
         <input v-model="password" type="password" name="password" placlass="container" ceholder="Password"
             aria-label="Password" />
         <button @click="newPassword">Change Password</button>
