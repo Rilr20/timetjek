@@ -11,8 +11,6 @@ async function LogOut() {
         })
     }
     const response = await fetch('http://localhost:8000/logout', requestOptions)
-    console.log(response);
-
     localStorage.setItem('token', "");
     localStorage.setItem('user_id', "");
     router.push("/login")

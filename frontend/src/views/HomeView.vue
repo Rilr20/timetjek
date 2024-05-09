@@ -7,7 +7,6 @@ import { useRouter } from 'vue-router';
 let tableData = ref([]);
 
 async function GetTableData() {
-    console.log(localStorage.getItem('user_id'));
     const requestOptions = {
         method: "Post",
         headers: { 'Content-Type': 'application/json', 'auth': localStorage.getItem('token') },
@@ -20,7 +19,6 @@ async function GetTableData() {
     }
 
     const data = await response.json()
-    console.log(data);
 
     tableData.value = data;
 
@@ -45,7 +43,7 @@ onMounted(() => {
             </div>
         </div>
 
-        <TimeReg :method="GetTableData" />
+        <TimeReg @GetTableData="GetTableData" />
 
         <h2>Your Time Registrations</h2>
         <div style="overflow-x:auto;">
