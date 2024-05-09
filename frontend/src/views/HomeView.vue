@@ -34,17 +34,7 @@ onMounted(() => {
 <template>
     <HeaderComp />
     <main class="container">
-        <div class="grid">
-            <h1 class="">HomeView</h1>
-            <div class="grid">
-                <div></div>
-                <div></div>
-                
-            </div>
-        </div>
-
         <TimeReg @GetTableData="GetTableData" />
-
         <h2>Your Time Registrations</h2>
         <div style="overflow-x:auto;">
             <table>
