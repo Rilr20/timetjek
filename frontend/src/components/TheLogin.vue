@@ -72,7 +72,9 @@ async function Authenticate() {
     <article class="">
         <h2>{{ text[0] }}</h2>
         <p class="pico-color-pink-400">{{ error }}</p>
+        <label for="">Person number</label>
         <input v-model="personnumber" type="text" name="text" placeholder="Person Number" aria-label="Number" />
+        <label for="">Password</label>
         <input v-model="password" type="password" name="password" placlass="container" ceholder="Password"
             aria-label="Password" />
         <button @click="Authenticate">{{ text[0] }}</button>
