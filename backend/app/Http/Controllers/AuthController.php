@@ -28,6 +28,9 @@ class AuthController extends Controller
             return response()->json("logged out", 200);
     }
     public function register(Request $request) {
+        if (strlen($request->personnumber) != 10) {
+            return response()->json(['error' => 'Invalid person number'], 400);
+        }
         $user = User::where('personnumber', $request->personnumber)->first();
         if ($user == null) {
             $user = new User;

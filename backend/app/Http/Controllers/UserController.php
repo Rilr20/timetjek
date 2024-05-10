@@ -22,7 +22,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        // var_dump($request);
         $user = User::where('personnumber', $request->personnumber)->first();
         var_dump($user);
         if ($user == null) {
@@ -55,7 +54,6 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
         $user->password = Hash::make($request->password);
-        // $user->personnumber = $request->personnumber;
         $user->save();
         return response()->json($user, 200);
     }
