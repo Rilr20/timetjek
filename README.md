@@ -1,4 +1,4 @@
-# timotjek
+# timetjek
 
 ## Arbetstimmar
 
@@ -6,11 +6,11 @@
 - 15min setup av databas
 - 1h userController  
 - 30min AuthController
-- 2h CORS, och Auth 
+- 1.5h CORS, och Auth 
 - 1h TimeRegistrationController
-- 1h bugfixxing/improvements av backend
+- 1.5h bugfixxing/improvements av backend
 
 - 5min frontend Setup
 - 30min Login view
-- 2h implementation av API i frontend. 
-- 1h  Generella bugfixar/improvements
+- 1.5h implementation av API i frontend. 
+- 1.25h  Generella bugfixar/improvements
